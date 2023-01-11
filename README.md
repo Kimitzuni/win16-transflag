@@ -22,8 +22,32 @@ because of that - It only looks correct in the starting window size. And because
 I don't think I've done things correctly, this program might have memory leaks
 due to me being incompetent with the Win16 API.
 
+## Building on Windows 3.1
+To build on Windows 3.1, you will need to have a copy of Microsoft Visual C++ 1.5
+(or later) installed. Once you have that, you can simply open the `HELLO.MAK` file
+from in VC++1.5, and build.
+
 ## Preview
 ![The Trans Flag](https://link.storjshare.io/raw/jvxikkhiqnksyeatwcn3iigoa3ta/techlgbt/media_attachments/files/109/667/719/965/591/782/small/fe3711889cb5dbe7.png)
 
 [Twitter Post (@Kimitzuni)](https://twitter.com/Kimitzuni/status/1612986760312627200) |
 [Mastadon Post (@kimitzuni@tech.lgbt)](https://tech.lgbt/@kimitzuni/109667720255141430)
+
+## LICENSE
+```
+Win16 Trans Flag
+Copyright (c) Rebecca White 2023
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+```
