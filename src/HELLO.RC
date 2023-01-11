@@ -1,0 +1,23 @@
+/* #include "style.h" */
+#include "windows.h"
+#include "hello.h"
+
+/* HELLOICON  ICON    hello.ico */
+
+STRINGTABLE
+BEGIN
+    IDSNAME,    "Trans Flag"
+    IDSABOUT,   "About..."
+    IDSTITLE,   "Trans Flag 3.1"
+END
+
+ABOUTBOX DIALOG 22, 17, 154, 75
+STYLE WS_POPUP | WS_DLGFRAME
+BEGIN
+    CTEXT "@Kimitzuni"	                        -1, 0,  5, 154, 8
+    ICON  "hello"                               -1,  9, 23,  0, 0
+    CTEXT "Trans Flag in Win16"                 -1,  0, 14, 154, 8
+    CTEXT "Version 1.03"                        -1, 30, 34, 94, 8
+    CTEXT "Copyright © 2023, Rebecca White"     -1,  0, 47,154, 9
+    DEFPUSHBUTTON "Ok"                          IDOK, 61, 59, 32, 14, WS_GROUP
+END
