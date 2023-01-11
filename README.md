@@ -31,7 +31,7 @@ from in VC++1.5, and build.
 ![The Trans Flag](https://link.storjshare.io/raw/jvxikkhiqnksyeatwcn3iigoa3ta/techlgbt/media_attachments/files/109/667/719/965/591/782/small/fe3711889cb5dbe7.png)
 
 [Twitter Post (@Kimitzuni)](https://twitter.com/Kimitzuni/status/1612986760312627200) |
-[Mastadon Post (@kimitzuni@tech.lgbt)](https://tech.lgbt/@kimitzuni/109667720255141430)
+[Mastodon Post (@kimitzuni@tech.lgbt)](https://tech.lgbt/@kimitzuni/109667720255141430)
 
 ## LICENSE
 ```
