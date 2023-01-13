@@ -32,6 +32,9 @@ FARPROC lpprocAbout;
 RECT rcWnd;
 HPEN hPen;
 
+COLORREF cyan;
+COLORREF pink;
+
 long FAR PASCAL HelloWndProc(HWND, unsigned, WORD, LONG);
 
 BOOL FAR PASCAL About( hDlg, message, wParam, lParam )
@@ -122,7 +125,7 @@ int cmdShow;
                         CW_USEDEFAULT,    /*  x - ignored for tiled windows */
                         CW_USEDEFAULT,    /*  y - ignored for tiled windows */
                         300,    /* cx - ignored for tiled windows */
-                        279,    /* cy - ignored for tiled windows */
+                        200,    /* cy - ignored for tiled windows */
                         (HWND)NULL,        /* no parent */
                         (HMENU)NULL,       /* use class menu */
                         (HANDLE)hInstance, /* handle to window instance */
@@ -185,41 +188,35 @@ LONG lParam;
         // HelloPaint( ps.hdc );
 		   
 		GetClientRect(hWnd, &rcWnd);                                             
-
-		/*
-		 * This is a very bruteforce way of doing it and probably
-		 * (100%) could be improved to just be better, and not cause
-		 * resource leaks. I don't know if it does cause resource leaks.
-		 */                                                             
+    	
+    	/*
+    	 * This whole section got rewritten to be, generally cleaner and just plain better.
+    	 * And more than likely not cause memory leaks.
+    	 *
+    	 * If you want to see the horror that it was before I decided to rewrite it, you
+    	 * can:
+    	 *
+    	 *	github.com/kimitzuni/win16-transflag/blob/bfa5/src/HELLO.C#L189
+    	 *
+    	 * It's bad!
+    	 */
+    	                                       
+		cyan = RGB(0, 255, 255);
+		pink = RGB(255, 0, 255);
 		
-		hPen = CreatePen(PS_SOLID, 1, RGB(0, 255, 255));  
+		hPen = CreatePen(PS_SOLID, 1, cyan);
 		SelectObject(ps.hdc, hPen);
-		SetBkColor(ps.hdc, RGB(0, 0, 0));
-		SelectObject(ps.hdc, CreateSolidBrush(RGB(0, 255, 255)));   
-		  
-		// hdc, x upr left, y upr left, x lwr right, y lwr right
-		Rectangle(ps.hdc, 1, 1, rcWnd.right, 50);
+		SetBkColor(ps.hdc, cyan);
+		SelectObject(ps.hdc, CreateSolidBrush(cyan));
+		Rectangle(ps.hdc, 0, 0, rcWnd.right, rcWnd.bottom / 5);
+		Rectangle(ps.hdc, 0, rcWnd.bottom, rcWnd.right, (rcWnd.bottom / 5) * 4);
 		
-		hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 255));
+		hPen = CreatePen(PS_SOLID, 1, pink);
 		SelectObject(ps.hdc, hPen);
-		SetBkColor(ps.hdc, RGB(0, 0, 0));
-		SelectObject(ps.hdc, CreateSolidBrush(RGB(255, 0, 255)));
-		
-		Rectangle(ps.hdc, 1, 50, rcWnd.right, 100);
-		
-
-		hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 255));
-		SelectObject(ps.hdc, hPen);
-		SetBkColor(ps.hdc, RGB(0, 0, 0));
-		SelectObject(ps.hdc, CreateSolidBrush(RGB(255, 0, 255)));
-		
-		Rectangle(ps.hdc, 1, 150, rcWnd.right, 200);
-		
-		hPen = CreatePen(PS_SOLID, 1, RGB(0, 255, 255));  
-		SelectObject(ps.hdc, hPen);
-		SetBkColor(ps.hdc, RGB(0, 0, 0));
-		SelectObject(ps.hdc, CreateSolidBrush(RGB(0, 255, 255)));   
-		Rectangle(ps.hdc, 1, 200, rcWnd.right, 250);
+		SetBkColor(ps.hdc, pink);
+		SelectObject(ps.hdc, CreateSolidBrush(pink));
+		Rectangle(ps.hdc, 0, (rcWnd.bottom / 5) * 2, rcWnd.right, rcWnd.bottom / 5);
+		Rectangle(ps.hdc, 0, (rcWnd.bottom / 5) * 4, rcWnd.right, (rcWnd.bottom / 5) * 3);
 		
 		DeleteObject(hPen);
 		EndPaint(hWnd, &ps);                          
